@@ -1,0 +1,62 @@
+<!-- Redes sociales -->
+<div class="light-green darken-2 fl_right red_social">
+    <ul class="red_social_right">
+        <li>
+            <a href="#"><%= image_tag "facebook.png", class: 'red_logo responsive-img' %></a>
+        </li>
+        <li>
+            <a href="#"><%= image_tag "twitter.png", class: 'red_logo responsive-img' %></a>
+        </li>
+        <li>
+            <a href="#"><%= image_tag "instragram.png", class: 'red_logo responsive-img' %></a>
+        </li>
+        <li>
+            <a href="#"><%= image_tag "linkedin.png", class: 'red_logo responsive-img' %></a>
+        </li>
+    </ul>
+</div>
+
+<!-- Menu -->
+<div>
+    <header>
+        <div>
+            <h1><%= link_to "Guiasos", root_path, class: "letra_titulo center" %></h1>
+        </div>
+    </header>
+
+    <nav id="menu">
+        <div class="nav-wrapper container_menu">
+            <a href="#" data-activates="mobile-demo" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul id="opcion_menu">
+                <li>
+                    <%= link_to "INICIO", root_path, class: "letra_menu" %>
+                </li>
+                <li>
+                    <a class="letra_menu" href="#">QUIENES SOMOS</a>
+                </li>
+                <li>
+                    <a class="letra_menu" href="#">PROGRAMAS</a>
+                </li>
+                <li>
+                    <a class="letra_menu" href="#">NOTICIAS</a>
+                </li>
+                <li>
+                    <a class="letra_menu" href="#">DIRECTORIO</a>
+                </li>
+                <li>
+                    <a class="letra_menu" href="#">CONTACTO</a>
+                </li>
+                <li>
+                    <% if current_user %>
+                    <%= link_to "CERRAR SESION", destroy_user_session_path, method: :delete, class: "letra_menu" %>
+                <% else %>
+                    <%= link_to "INICIAR SESION", new_user_session_path , class: "letra_menu" %>
+                    <% end %>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
