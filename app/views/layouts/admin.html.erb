@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guiasos</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <%= render "shared/alerts" %>
+        <div class="light-green darken-2 fl_right red_social">
+            <ul class="red_social_right">
+                <li>
+                    <a href="#"><%= image_tag "facebook.png", class: 'red_logo responsive-img' %></a>
+                </li>
+                <li>
+                    <a href="#"><%= image_tag "twitter.png", class: 'red_logo responsive-img' %></a>
+                </li>
+                <li>
+                    <a href="#"><%= image_tag "instragram.png", class: 'red_logo responsive-img' %></a>
+                </li>
+                <li>
+                    <a href="#"><%= image_tag "linkedin.png", class: 'red_logo responsive-img' %></a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <div class="card light-green darken-2">
+                    <div class="white-text">
+                        <div class="card-image">
+                            <%= image_tag "slider2.jpg" %>
+                            <span class="card-title">Guiasos</span>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" style="color: white;">This is a link</a>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" style="color: white;">
+                            Otro link</a>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" style="color: white;">
+                            Otro link</a>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" style="color: white;">
+                            Otro link</a>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" style="color: white;">
+                            Otro link</a>
+                    </div>
+                    <div class="card-action">
+                        <% if current_user %>
+                        <%= link_to "CERRAR SESION", destroy_user_session_path, method: :delete, style: "color: white" %>
+                    <% else %>
+                        <%= link_to "INICIAR SESION", new_user_session_path , style: "color: white;" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="col s9">
+                <div class="container">
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
