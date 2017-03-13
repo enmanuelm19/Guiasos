@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_foundation.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @admin_foundation.description %>
+</p>
+
+<p>
+  <strong>Mission:</strong>
+  <%= @admin_foundation.mission %>
+</p>
+
+<p>
+  <strong>View:</strong>
+  <%= @admin_foundation.view %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @admin_foundation.phone %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @admin_foundation.mail %>
+</p>
+
+<%= link_to 'Edit', edit_admin_foundation_path(@admin_foundation) %> |
+<%= link_to 'Back', admin_foundations_path %>

@@ -1,0 +1,41 @@
+<%= form_for(@admin_foundation) do |f| %>
+  <% if @admin_foundation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_foundation.errors.count, "error") %> prohibited this admin_foundation from being saved:</h2>
+
+      <ul>
+      <% @admin_foundation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :mission %><br>
+    <%= f.text_field :mission %>
+  </div>
+  <div class="field">
+    <%= f.label :view %><br>
+    <%= f.text_field :view %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mail %><br>
+    <%= f.text_field :mail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
