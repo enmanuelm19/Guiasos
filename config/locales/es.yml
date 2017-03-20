@@ -1,0 +1,21 @@
+es:
+  admin_foundations:
+      title: "Fundaciones"
+      name: "Nombre"
+      description: "Descripción"
+      mission: "Misión"
+      view: "Vision"
+      phone: "Telefono"
+      mail: "Correo"
+      show: "Ver"
+      edit: "Editar fundación"
+      destroy: "Eliminar"
+      new: "Nueva fundación"
+      confirm: "¿Estas seguro de eliminar este registro?"
+      back: "Atras"
+
+  helpers:
+    submit:
+      admin_foundation:
+        create: "Crear fundación"
+        update: "Actualizar fundación"

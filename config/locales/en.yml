@@ -20,4 +20,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  admin_foundations:
+      title: "Foundations"
+      name: "Name"
+      description: "Description"
+      mission: "Mission"
+      view: "Vision"
+      phone: "Phone"
+      mail: "Email"
+      show: "Show"
+      edit: "Edit foundation"
+      destroy: "Delete"
+      new: "New foundation"
+      confirm: "Are you sure?"
+      back: "Back"
+
+  helpers:
+    submit:
+      admin_foundation:
+        create: "Create fundation"
+        update: "Update fundation"
