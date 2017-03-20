@@ -9,8 +9,15 @@
     </head>
     <body>
         <%= render "shared/alerts" %>
-        <div class="light-green darken-2 ">
-            <ul class="red_social_right">
+        <div class="light-green darken-2 valign-wrapper">
+            <ul id="slide-out" class="side-nav ">
+              <li><a href="#!">Second Link</a></li>
+              <li><div class="divider"></div></li>
+              <li><a class="subheader">Subheader</a></li>
+              <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
+            <ul class="red_social_right" style="left: 10px">
                 <li>
                     <a href="#"><%= image_tag "facebook.png", class: 'red_logo responsive-img' %></a>
                 </li>
@@ -25,15 +32,7 @@
                 </li>
             </ul>
         </div>
-        <div class="hide-on-large-only">
-          <ul id="slide-out" class="side-nav">
-            <li><a href="#!">Second Link</a></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-          </ul>
-          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
+
         <div class="row">
             <div class="col m3 hide-on-med-and-down">
                 <div class="card light-green darken-2">
