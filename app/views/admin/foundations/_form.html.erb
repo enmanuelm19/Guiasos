@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :description, t('admin_foundations.description') %><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, class: 'materialize-textarea' %>
   </div>
   <div class="field">
     <%= f.label :mission, t('admin_foundations.mission') %><br>
@@ -29,13 +29,13 @@
   </div>
   <div class="field">
     <%= f.label :phone, t('admin_foundations.phone') %><br>
-    <%= f.text_field :phone %>
+    <%= f.telephone_field :phone %>
   </div>
   <div class="field">
     <%= f.label :mail, t('admin_foundations.mail') %><br>
-    <%= f.text_field :mail %>
+    <%= f.email_field :mail %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn waves-effect waves-light' %>
   </div>
 <% end %>

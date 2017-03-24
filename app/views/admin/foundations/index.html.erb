@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<div class="col s12">
+<div class="col s12 center-align">
   <h1><%= t 'admin_foundations.title' %></h1>
 </div>
 
-<table class="responsive-table">
+<table class="bordered">
   <thead>
     <tr>
       <th data-field="name"><%= t 'admin_foundations.name' %></th>
-      <th data-field="description"><%= t 'admin_foundations.description' %></th>
+      <th data-field="description" colspan="3"><%= t 'admin_foundations.description' %></th>
       <th data-field="mission"><%= t 'admin_foundations.mission' %></th>
       <th data-field="view"><%= t 'admin_foundations.view' %></th>
       <th data-field="phone"><%= t 'admin_foundations.phone' %></th>
@@ -21,14 +21,26 @@
     <% @admin_foundations.each do |admin_foundation| %>
       <tr>
         <td><%= admin_foundation.name %></td>
-        <td><%= admin_foundation.description %></td>
+        <td colspan="3"><%= admin_foundation.description %></td>
         <td><%= admin_foundation.mission %></td>
         <td><%= admin_foundation.view %></td>
         <td><%= admin_foundation.phone %></td>
         <td><%= admin_foundation.mail %></td>
-        <td><%= link_to t('admin_foundations.show'), admin_foundation %></td>
-        <td><%= link_to t('admin_foundations.edit'), edit_admin_foundation_path(admin_foundation) %></td>
-        <td><%= link_to t('admin_foundations.destroy'), admin_foundation, method: :delete, data: { confirm: t('admin_foundations.confirm') } %></td>
+        <td>
+          <%= link_to admin_foundation,  title: t('admin_foundations.show') do  %>
+            <i class="material-icons">visibility</i>
+          <% end %>
+        </td>
+        <td>
+        <%= link_to edit_admin_foundation_path(admin_foundation), title: t('admin_foundations.edit') do %>
+          <i class="material-icons">mode_edit</i>
+        <% end %>
+      </td>
+        <td>
+        <%= link_to admin_foundation, title: t('admin_foundations.destroy'), method: :delete, data: { confirm: t('admin_foundations.confirm') } do %>
+            <i class="material-icons">delete</i>
+        <% end  %>
+      </td>
       </tr>
     <% end %>
   </tbody>

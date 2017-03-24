@@ -6,84 +6,83 @@
 </div>-->
 
 <!-- Slider -->
-<div class="slider" style="margin-bottom: 150px; height: 500px">
-    <ul class="slides">
-        <li>
-            <%= image_tag "slider1.jpg" %>
-            <div class="caption center-align">
-                <h3>Guiasos..</h3>
-                <h5 class="light grey-text text-lighten-3">Proyectamos hacia el camino correcto tu ODS</h5>
-            </div>
-        </li>
-        <li>
-            <%= image_tag "slider2.jpg" %>
-            <!-- random image -->
-            <div class="caption left-align">
-                <h3>Ayudando a otros..</h3>
-                <h5 class="light grey-text text-lighten-3">Somos multiplicadores de bienestar</h5>
-            </div>
-        </li>
-        <li>
-            <%= image_tag "slider3.jpg" %>
-            <!-- random image -->
-            <div class="caption right-align">
-                <h3>Unete..</h3>
-                <h5 class="light grey-text text-lighten-3">Red de asesores de ODS</h5>
-            </div>
-        </li>
-    </ul>
-</div>
-
-
-<!-- Cuadros -->
-
 <div class="row">
-    <div class="col s4" style="background-color:  #ffA900;">
-        <a href="#" class="center">
-            <i class="large material-icons cuadro">comment</i>
-        </a>
-        <a href="#">
-            <p class="cuadro_letra center">Comentario 1</p>
-        </a>
+
+    <div class="slider" style="margin-bottom: 150px; height: 500px">
+        <ul class="slides">
+            <li>
+                <%= image_tag "slider1.jpg" %>
+                <div class="caption center-align">
+                    <h3>Guiasos..</h3>
+                    <h5 class="light grey-text text-lighten-3">Proyectamos hacia el camino correcto tu ODS</h5>
+                </div>
+            </li>
+            <li>
+                <%= image_tag "slider2.jpg" %>
+                <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Ayudando a otros..</h3>
+                    <h5 class="light grey-text text-lighten-3">Somos multiplicadores de bienestar</h5>
+                </div>
+            </li>
+            <li>
+                <%= image_tag "slider3.jpg" %>
+                <!-- random image -->
+                <div class="caption right-align">
+                    <h3>Unete..</h3>
+                    <h5 class="light grey-text text-lighten-3">Red de asesores de ODS</h5>
+                </div>
+            </li>
+        </ul>
     </div>
 
-    <div class="col s4" style="background-color: #ffA300; ">
-        <a href="#" class="center">
-            <i class="large material-icons cuadro">comment</i>
-        </a>
-        <a href="#">
-            <p class="cuadro_letra center">Comentario 2</p>
-        </a>
-    </div>
+    <!-- Cuadros -->
 
-    <div class="col s4" style="background-color:  #ffA900;">
-        <a href="#" class="center">
-            <i class="large material-icons cuadro">comment</i>
-            <a href="#">
-                <p class="cuadro_letra center">Comentario 3</p>
-            </a>
+    <div class="row">
+        <% @foundations.each do |foundation| %>
+        <div class="col l4 m6 s12">
+            <div class="card amber darken-2">
+                <div class="card-content">
+                    <span class="card-title"><%= foundation.name %></span>
+                    <p>
+                        <%= foundation.description %>
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="#" style="color: #455a64">Link a fundacion</a>
+                </div>
+            </div>
         </div>
+        <% end %>
+        <% if current_user %>
+          <% if current_user.type != nil %>
+            Es un administrador
+          <% else %>
+            No es un administrador
+          <% end %>
+        <% end %>
     </div>
-
     <!-- Seccion Varios -->
-
-    <div style="margin: 20px;">
-        <h5>Noticias</h5>
+    <div class="row">
+        <div class="center-align">
+            <h5>Noticias</h5>
+        </div>
     </div>
 
     <!-- Seccion Contactanos -->
-
-    <div style="width: 100%; height: 200px; margin-bottom: -20px; overflow:hidden;" class="grey lighten-3">
-        <div class="contacto" style="float:left; ">
-            <%= image_tag "contacto.png", class: "img_contacto responsive-img" %>
-        </div>
-        <div style="width: 50%; float:left; margin-top: 70px; margin-left: 50px;" class="center">
-            Contactanos para darte
-            <strong style="font-size: 20px;">asesoria de calidad</strong>, y asi tu idea se pueda
-            <strong style="font-size: 20px;">llevar a cabo</strong>
-            tan pronto sea posible para que
-            <strong style="font-size: 20px;">juntos ayudemos a otros
-            </strong>
+    <div class="row">
+        <div style="width: 100%; height: 200px; margin-bottom: -20px; overflow:hidden;" class="grey lighten-3">
+            <div class="contacto" style="float:left; ">
+                <%= image_tag "contacto.png", class: "img_contacto responsive-img" %>
+            </div>
+            <div style="width: 50%; float:left; margin-top: 70px; margin-left: 50px;" class="center">
+                Contactanos para darte
+                <strong style="font-size: 20px;">asesoria de calidad</strong>, y asi tu idea se pueda
+                <strong style="font-size: 20px;">llevar a cabo</strong>
+                tan pronto sea posible para que
+                <strong style="font-size: 20px;">juntos ayudemos a otros
+                </strong>
+            </div>
         </div>
     </div>
 
@@ -125,22 +124,22 @@
 
     <!-- Noticias -->
     <script>
-    $(document).ready(function(){
-          $('.slider').slider();
-    });
+        $(document).ready(function () {
+            $('.slider').slider();
+        });
 
-    // Pause slider
-    $('.slider').slider('pause');
-    // Start slider
-    $('.slider').slider('start');
-    // Next slide
-    $('.slider').slider('next');
-    // Previous slide
-    $('.slider').slider('prev')
+        // Pause slider
+        $('.slider').slider('pause');
+        // Start slider
+        $('.slider').slider('start');
+        // Next slide
+        $('.slider').slider('next');
+        // Previous slide
+        $('.slider').slider('prev')
 
-     $(".button-collapse").sideNav();
+        $(".button-collapse").sideNav();
 
-     $(document).ready(function(){
-          $('.parallax').parallax();
+        $(document).ready(function () {
+            $('.parallax').parallax();
         });
     </script>

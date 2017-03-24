@@ -4,7 +4,12 @@ class Admin::FoundationsController < Admin::BaseController
   # GET /admin/foundations
   # GET /admin/foundations.json
   def index
-    @admin_foundations = Admin::Foundation.all
+    if current_user.type != nil
+      @admin_foundations = Admin::Foundation.all
+    else
+      @admin_foundations = Admin::Foundation.created_by(current_user)
+    end
+
   end
 
   # GET /admin/foundations/1
@@ -25,7 +30,7 @@ class Admin::FoundationsController < Admin::BaseController
   # POST /admin/foundations.json
   def create
     @admin_foundation = Admin::Foundation.new(admin_foundation_params)
-
+    @admin_foundation.user_id = current_user.id
     respond_to do |format|
       if @admin_foundation.save
         format.html { redirect_to @admin_foundation, notice: 'Foundation was successfully created.' }

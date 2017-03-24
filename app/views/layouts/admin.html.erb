@@ -9,14 +9,24 @@
     </head>
     <body>
         <%= render "shared/alerts" %>
+        <ul id="slide-out" class="side-nav">
+            <li>
+              <%= link_to t('admin_foundations.title'), admin_foundations_path %>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+            <% if current_user %>
+              <%= link_to "CERRAR SESION", destroy_user_session_path, method: :delete, class: "waves-effect" %>
+            <% end %>
+          </li>
+        </ul>
         <div class="light-green darken-2 valign-wrapper">
-            <ul id="slide-out" class="side-nav ">
-              <li><a href="#!">Second Link</a></li>
-              <li><div class="divider"></div></li>
-              <li><a class="subheader">Subheader</a></li>
-              <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-            </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
+
+            <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only">
+                <i class="material-icons">menu</i>
+            </a>
             <ul class="red_social_right" style="left: 10px">
                 <li>
                     <a href="#"><%= image_tag "facebook.png", class: 'red_logo responsive-img' %></a>
@@ -43,57 +53,30 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="#" style="color: white;">This is a link</a>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" style="color: white;">
-                            Otro link</a>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" style="color: white;">
-                            Otro link</a>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" style="color: white;">
-                            Otro link</a>
-                    </div>
-                    <div class="card-action">
-                        <a href="#" style="color: white;">
-                            Otro link</a>
+                        <%= link_to t('admin_foundations.title'), admin_foundations_path, style: 'color: white' %>
                     </div>
                     <div class="card-action">
                         <% if current_user %>
-                        <%= link_to "CERRAR SESION", destroy_user_session_path, method: :delete, style: "color: white" %>
-                    <% else %>
-                        <%= link_to "INICIAR SESION", new_user_session_path , style: "color: white;" %>
+                        <%= link_to "CERRAR SESION", destroy_user_session_path, method: :delete, style: "color: white", class: "waves-effect" %>
                         <% end %>
                     </div>
                 </div>
             </div>
 
             <div class="col s12 m9">
-                <div class="container">
-                    <%= yield %>
-                </div>
+                <%= yield %>
             </div>
         </div>
         <script type="text/javascript">
 
-        // Initialize collapse button
-        $(".button-collapse").sideNav({
-      menuWidth: 300, // Default is 300
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    });
-        // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-        //$('.collapsible').collapsible();
-
-        // Show sideNav
-        //$('.button-collapse').sideNav('show');
-        // Hide sideNav
-        $('.button-collapse').sideNav('hide');
-        // Destroy sideNav
-        //$('.button-collapse').sideNav('destroy');
-
+            // Initialize collapse button
+            $(".button-collapse").sideNav({
+                menuWidth: 300, // Default is 300
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            });
+            // Initialize collapsible (uncomment the line below if you use the dropdown variation) $('.collapsible').collapsible(); Show sideNav $('.button-collapse').sideNav('show'); Hide sideNav
+            $('.button-collapse').sideNav('hide');
+            // Destroy sideNav $('.button-collapse').sideNav('destroy');
         </script>
     </body>
 </html>
